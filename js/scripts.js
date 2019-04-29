@@ -23,7 +23,7 @@
 
     function getValSelectOne (e) {
         return valOne = e.target.value;
-    };
+    }
 
     function checkValue (e) {
         console.log(valOne);
