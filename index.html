@@ -5,8 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Module Js</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrapper {
+            width: 450px;
+            padding: 20px;
+            margin-left: auto;
+            border: 1px solid #ccc;
+            background: #f5f5f5;
+        }
+    </style>
 </head>
 <body>
+    <template id="caption">
+        <style>
+            .caption-wrap {
+                margin-bottom: 30px;
+            }
+            .caption {
+                font-size: 25px;
+                font-family: 'Roboto', sans-serif;
+                color: #656565;
+                font-weight: 700;
+                text-align: center;
+            }
+            .legend {
+                padding: 25px 0
+                font-size: 17px;
+                font-family: 'Roboto', sans-serif;
+                color: #929191;
+                text-align: justify;
+            }
+        </style>
+        <div class="caption-wrap">
+            <h2 class="caption">Пассажирские перевозки</h2>
+            <p class="legend">
+                Автобусные пассажирские перевозки нашим комфортабельным автобусом доставят вам удовольствие от поездки.
+            </p>
+        </div>
+    </template>
+    <div class="wrapper"></div>
 <!--    <h3>Сашина Татьяна</h3>-->
 
 <!--    https://panch.com.ua/pass_transfer

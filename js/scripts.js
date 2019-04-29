@@ -1,93 +1,41 @@
-let createElem = tagName => document.createElement ( tagName );
-let defineElem = (nameElem , nameClass) => customElements.define ( nameElem, nameClass );
+let createElem = (wrapTagName , tagName) => wrapTagName.appendChild( document.createElement ( tagName ) );
+let defineElem = (nameElem , nameClass) => customElements.define( nameElem, nameClass );
 
-let wrapper = createElem('div');
-wrapper.style = `
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 400px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background: #f5f5f5;
-`;
-document.body.appendChild(wrapper);
-
+let wrapper = document.querySelector('.wrapper');
 
 class CaptionElem extends HTMLElement {
     constructor() {
         super ();
-
-        let caption = createElem('div');
-        caption.className = 'caption-wrap';
-
-        let h2Tag = createElem('h2');
-        h2Tag.textContent = 'Пассажирские перевозки';
-        h2Tag.className = 'caption';
-
-        let pTag = createElem('p');
-        pTag.textContent = 'Автобусные пассажирские перевозки нашим комфортабельным автобусом доставят вам удовольствие от поездки. ';
-        pTag.className = 'legend';
-
-        let style = createElem('style');
-
-        style.textContent = `
-            .caption-wrap {
-                margin-bottom: 30px;
-            }
-            .caption {
-                font-size: 25px;
-                font-family: 'Roboto', sans-serif;
-                color: #656565;
-                font-weight: 700;
-                text-align: center;
-            }
-            .legend {
-                padding: 25px 0
-                font-size: 17px;
-                font-family: 'Roboto', sans-serif;
-                color: #929191;
-                text-align: justify;
-            }
-        `;
-
-        caption.appendChild(h2Tag);
-        caption.appendChild(pTag);
-
         this.shadow = this.attachShadow ( { mode: 'open' } );
-        this.shadow.appendChild ( style );
-        this.shadow.appendChild ( caption );
+        let caption = document.querySelector ( "#caption" );
+        this.shadow.appendChild ( caption.content )
     }
 }
-
 defineElem('caption-elem', CaptionElem);
-
-wrapper.appendChild(
-    createElem('caption-elem')
-).style = `display: block`;
+createElem(wrapper , 'caption-elem').style = `display: block`;
 
 
-class SelectionElem extends HTMLElement {
+/*class SelectionElem extends HTMLElement {
     constructor(){
         super();
 
         const optionsWayFrom = ['Город отправления' , 'Харьков' , 'Железный Порт' , 'Скадовск' , 'Лазурное' , 'Одесса - Затока'];
         const optionsWayTo = ['Выбрать пункт прибытия', 'Харьков' , 'Железный Порт' , 'Скадовск' , 'Лазурное' , 'Одесса - Затока'];
 
-        let wayFrom = createElem('div');
+        let wayFrom = document.createElement('div');
         wayFrom.className = 'way-from';
 
-        let wayTo = createElem('div');
+        let wayTo = document.createElement('div');
         wayTo.className = 'way-to';
 
         function createSelect(options , id , parentTag) {
-            let sel = createElem('select');
+            let sel = document.createElement('select');
             sel.id = id;
 
             parentTag === wayTo ? sel.style.display = 'none' : null;
 
             options.forEach ( val => {
-                var opt = createElem( 'option' );
+                var opt = document.createElement( 'option' );
                 opt.innerHTML = val;
                 opt.value = val;
                 sel.appendChild ( opt )
@@ -102,19 +50,86 @@ class SelectionElem extends HTMLElement {
         this.shadow.appendChild ( createSelect(optionsWayFrom , 'way_from' , wayFrom) );
         this.shadow.appendChild ( createSelect(optionsWayTo , 'way_to', wayTo) );
     }
+}*/
+
+const options = ['Выберите город' , 'Харьков' , 'Железный Порт' , 'Скадовск' , 'Лазурное' , 'Одесса - Затока'];
+
+function createClassSelectionElem( textLabel , nameSelect , optionsArr , checkValue , nameTag ) {
+    class SelectionElem extends HTMLElement {
+        constructor () {
+            super();
+            this.shadow = this.attachShadow ( { mode: 'open' } );
+
+            const style = `
+                .wrap-way {
+                    padding-bottom: 20px;
+                }                
+                .wrap-way label {
+                    display: block;
+                    padding-bottom: 10px;
+                    font-size: 18px;
+                    font-family: 'Roboto', sans-serif;
+                    color: #656565;
+                    font-weight: 700;
+                }
+                .wrap-way select {
+                    display: block;
+                    width: 100%;
+                    height: 50px;
+                    padding: 5px 5px 5px 10px;
+                    background: #3ab1bf;
+                    border: none;
+                    outline: none;
+                    color: #fff;
+                    font-size: 15px;
+                }
+            `;
+
+            this.shadow.appendChild(
+                document.createElement('style')
+            ).textContent = style;
+
+            //optionsArr проверка на массив
+            const options = optionsArr;
+
+            let div = createElem(this.shadow , 'div');
+            div.className = 'wrap-way';
+
+            let label = createElem(div , 'label');
+            label.textContent = textLabel;
+
+            let select = createElem(div , 'select');
+            select.name = nameSelect;
+
+            options.forEach ( val => {
+                let opt = document.createElement( 'option' );
+                opt.innerHTML = val;
+                opt.value = val;
+                select.appendChild ( opt )
+            });
+
+            select.addEventListener('change' , checkValue);
+        }
+    }
+
+    defineElem(nameTag, SelectionElem);
+    createElem(wrapper , nameTag);
 }
-
-defineElem('selection-elem', SelectionElem);
-
-wrapper.appendChild(
-    createElem('selection-elem')
-).style = `display: block`;
-
-
-let selectWayFrom = document.querySelector('selection-elem').shadowRoot.getElementById('way_from');
 
 let checkValue = function (e) {
     console.log(e.target.value)
 };
 
-selectWayFrom.addEventListener('change' , checkValue);
+createClassSelectionElem( 'Откуда' , 'way-from' , options , checkValue  , 'selection-from' );
+createClassSelectionElem( 'Куда' , 'way-to' , options ,checkValue  , 'selection-to' );//.style.display = 'none'
+
+//wrapper.appendChild(document.createElement('selection-elem'));
+
+
+/*let selectWayFrom = document.querySelector('selection-elem').shadowRoot.getElementById('way_from');
+
+let checkValue = function (e) {
+    console.log(e.target.value)
+};
+
+selectWayFrom.addEventListener('change' , checkValue);*/
