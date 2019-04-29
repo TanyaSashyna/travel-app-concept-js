@@ -1,20 +1,3 @@
-let createElem = (wrapTagName , tagName) => wrapTagName.appendChild( document.createElement ( tagName ) );
-let defineElem = (nameElem , nameClass) => customElements.define( nameElem, nameClass );
-
-let wrapper = document.querySelector('.wrapper');
-
-class CaptionElem extends HTMLElement {
-    constructor() {
-        super ();
-        this.shadow = this.attachShadow ( { mode: 'open' } );
-        let caption = document.querySelector ( "#caption" );
-        this.shadow.appendChild ( caption.content )
-    }
-}
-defineElem('caption-elem', CaptionElem);
-createElem(wrapper , 'caption-elem').style = `display: block`;
-
-
 /*class SelectionElem extends HTMLElement {
     constructor(){
         super();
@@ -51,6 +34,24 @@ createElem(wrapper , 'caption-elem').style = `display: block`;
         this.shadow.appendChild ( createSelect(optionsWayTo , 'way_to', wayTo) );
     }
 }*/
+
+
+
+let createElem = (wrapTagName , tagName) => wrapTagName.appendChild( document.createElement ( tagName ) );
+let defineElem = (nameElem , nameClass) => customElements.define( nameElem, nameClass );
+
+let wrapper = document.querySelector('.wrapper');
+
+class CaptionElem extends HTMLElement {
+    constructor() {
+        super ();
+        this.shadow = this.attachShadow ( { mode: 'open' } );
+        let caption = document.querySelector ( "#caption" );
+        this.shadow.appendChild ( caption.content )
+    }
+}
+defineElem('caption-elem', CaptionElem);
+createElem(wrapper , 'caption-elem').style = `display: block`;
 
 const options = ['Выберите город' , 'Харьков' , 'Железный Порт' , 'Скадовск' , 'Лазурное' , 'Одесса - Затока'];
 
@@ -116,20 +117,15 @@ function createClassSelectionElem( textLabel , nameSelect , optionsArr , checkVa
     createElem(wrapper , nameTag);
 }
 
-let checkValue = function (e) {
-    console.log(e.target.value)
+let valOne; 
+let getValSelectOne = function (e) {
+    return valOne = e.target.value;
 };
 
-createClassSelectionElem( 'Откуда' , 'way-from' , options , checkValue  , 'selection-from' );
-createClassSelectionElem( 'Куда' , 'way-to' , options ,checkValue  , 'selection-to' );//.style.display = 'none'
-
-//wrapper.appendChild(document.createElement('selection-elem'));
-
-
-/*let selectWayFrom = document.querySelector('selection-elem').shadowRoot.getElementById('way_from');
-
 let checkValue = function (e) {
+    console.log(valOne);
     console.log(e.target.value)
-};
+}
 
-selectWayFrom.addEventListener('change' , checkValue);*/
+createClassSelectionElem( 'Откуда' , 'way-from' , options , getValSelectOne  , 'selection-from' );
+createClassSelectionElem( 'Куда' , 'way-to' , options ,checkValue  , 'selection-to' );
