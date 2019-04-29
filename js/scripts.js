@@ -117,15 +117,17 @@ function createClassSelectionElem( textLabel , nameSelect , optionsArr , checkVa
     createElem(wrapper , nameTag);
 }
 
-let valOne; 
-let getValSelectOne = function (e) {
-    return valOne = e.target.value;
-};
+(function (){
+    let valOne; 
+    let getValSelectOne = function (e) {
+        return valOne = e.target.value;
+    };
 
-let checkValue = function (e) {
-    console.log(valOne);
-    console.log(e.target.value)
-}
+    let checkValue = function (e) {
+        console.log(valOne);
+        console.log(e.target.value)
+    }
 
-createClassSelectionElem( 'Откуда' , 'way-from' , options , getValSelectOne  , 'selection-from' );
-createClassSelectionElem( 'Куда' , 'way-to' , options ,checkValue  , 'selection-to' );
+    createClassSelectionElem( 'Откуда' , 'way-from' , options , getValSelectOne  , 'selection-from' );
+    createClassSelectionElem( 'Куда' , 'way-to' , options ,checkValue  , 'selection-to' );
+})();
