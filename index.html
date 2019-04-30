@@ -12,6 +12,9 @@
             padding: 0;
             box-sizing: border-box;
         }
+        body {
+            color: #656565;
+        }
         .wrapper {
             width: 450px;
             padding: 20px;
@@ -30,7 +33,6 @@
             .caption {
                 font-size: 25px;
                 font-family: 'Roboto', sans-serif;
-                color: #656565;
                 font-weight: 700;
                 text-align: center;
             }
@@ -60,7 +62,6 @@
                 padding-bottom: 10px;
                 font-size: 18px;
                 font-family: 'Roboto', sans-serif;
-                color: #656565;
                 font-weight: 700;
             }
             .wrap-way select {
@@ -80,7 +81,167 @@
             <select></select>
         </div>
     </template>
-    <div class="wrapper"></div>
+
+    <template id="about_way">
+        <style>
+            .way-content {
+                padding: 30px 0;
+                font-family: 'Roboto', sans-serif;
+            }
+            .way-head {
+                padding-bottom: 20px;
+                text-align: center;
+                margin: 0;
+            }
+            .way-img {
+                padding-bottom: 30px;
+            }
+            .way-img img {
+                width: 100%;
+            }
+            .way-info h4 {
+                font-size: 18px;
+                text-transform: uppercase;
+                padding-bottom: 20px;
+                font-weight: 400;
+            }
+            .way-info h4 .when {
+                text-transform: none;
+            }
+            .way-info h4 .when,
+            .way-info .time,
+            .way-info .where,
+            .way-info .city-time,
+            .way-info .price {
+                font-weight: 700;
+            }
+            .way-info .way-time,
+            .way-info .way-where,
+            .way-info .arrival {
+                padding-bottom: 10px;
+            }
+            .way-info .price {
+                font-size: 21px;
+                font-weight: 700;
+                color: #3399cc;
+                text-align: right;
+                padding: 20px 0 30px;
+            }
+            .btn-wrap {
+                text-align: center;
+            }
+            .btn-wrap .buy-btn {
+                padding: 10px 15px;
+                background-color: #3ab1bf;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 15px;
+                border-radius: 2px;
+                border: 1px solid;
+                transition: all 0.35s ease;
+            }
+            .btn-wrap .buy-btn:hover {
+                color: #3ab1bf;
+                background-color: #fff;
+            }
+        </style>
+        <div class="way-content">
+            <h1 class="way-head">Харьков - Кирилловка</h1>
+            <div class="way-img">
+                <img src="https://cdn.pixabay.com/photo/2016/11/14/22/18/beach-1824855_960_720.jpg" alt="image">
+            </div>
+            <div class="way-info">
+                <h4>Автобусные рейсы: <span class="when">Ежедневно</span></h4>
+                <div class="way-time">Время отправления: <span class="time">22:00</span></div>
+                <div class="way-where">Место отправления: <span class="where">ЖД вокзал</span></div>
+                <div class="arrival">Прибытие: <span class="city-time">Кирилловка 07:00</span></div>
+                <div class="price">400 грн</div>
+                <div class="btn-wrap">
+                    <button class="buy-btn">Заказать</button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="wrapper">
+        <!--<style>
+            .way-content {
+                padding: 30px 0;
+                font-family: 'Roboto', sans-serif;
+            }
+            .way-head {
+                padding-bottom: 20px;
+                text-align: center;
+                margin: 0;
+            }
+            .way-img {
+                padding-bottom: 30px;
+            }
+            .way-img img {
+                width: 100%;
+            }
+            .way-info h4 {
+                font-size: 18px;
+                text-transform: uppercase;
+                padding-bottom: 20px;
+                font-weight: 400;
+            }
+            .way-info h4 .when {
+                text-transform: none;
+            }
+            .way-info h4 .when,
+            .way-info .time,
+            .way-info .where,
+            .way-info .city-time,
+            .way-info .price {
+                font-weight: 700;
+            }
+            .way-info .way-time,
+            .way-info .way-where,
+            .way-info .arrival {
+                padding-bottom: 10px;
+            }
+            .way-info .price {
+                font-size: 21px;
+                font-weight: 700;
+                color: #3399cc;
+                text-align: right;
+                padding: 20px 0 30px;
+            }
+            .btn-wrap {
+                text-align: center;
+            }
+            .btn-wrap .buy-btn {
+                padding: 10px 15px;
+                background-color: #3ab1bf;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 15px;
+                border-radius: 2px;
+                border: 1px solid;
+                transition: all 0.35s ease;
+            }
+            .btn-wrap .buy-btn:hover {
+                color: #3ab1bf;
+                background-color: #fff;
+            }
+        </style>
+        <div class="way-content">
+            <h1 class="way-head">Харьков - Кирилловка</h1>
+            <div class="way-img">
+                <img src="https://cdn.pixabay.com/photo/2016/11/14/22/18/beach-1824855_960_720.jpg" alt="image">
+            </div>
+            <div class="way-info">
+                <h4>Автобусные рейсы: <span class="when">Ежедневно (Пн, Ср, Пт)</span></h4>
+                <div class="way-time">Время отправления: <span class="time">22:00</span></div>
+                <div class="way-where">Место отправления: <span class="where">ЖД вокзал</span></div>
+                <div class="arrival">Прибытие: <span class="city-time">Кирилловка 07:00</span></div>
+                <div class="price">400 грн</div>
+                <div class="btn-wrap">
+                    <button class="buy-btn">Заказать</button>
+                </div>
+            </div>
+        </div>-->
+    </div>
 <!--    <h3>Сашина Татьяна</h3>-->
 
 <!--    https://panch.com.ua/pass_transfer
