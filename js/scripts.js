@@ -25,7 +25,7 @@
         createElem(wrapper , 'caption-elem').style = `display: block`;
     }
 
-    function createClassAboutWay () {
+    function createClassAboutWay (headCity) {
         class AboutWayElem extends HTMLElement {
             constructor () {
                 super();
@@ -33,6 +33,9 @@
 
                 let aboutWay = document.querySelector ( "#about_way" );
                 this.shadow.appendChild ( aboutWay.content.cloneNode ( true ) )
+
+                /*let wayHead = this.shadow.querySelector('.way-head');
+                wayHead.textContent = headCity;*/
             }
         }
 
@@ -75,8 +78,14 @@
         console.log(valOne);
         console.log(e.target.value);
 
+        //document.querySelector('about-way') ? document.querySelector('about-way').remove() : null;
 
-        //createClassAboutWay ()
+        //createClassAboutWay()
+        //Подумать над удалением и вставкой повторяющегося template
+        /*let cap = document.querySelector ( "#caption" );
+        document.querySelector('.wrapper').appendChild(
+            cap.content
+        )*/
     }
 
     function checkCity (city) {
