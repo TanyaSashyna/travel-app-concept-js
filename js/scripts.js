@@ -2,8 +2,13 @@
     
     let createElem = (wrapTagName , tagName) => wrapTagName.appendChild( document.createElement ( tagName ) );
     let defineElem = (nameElem , nameClass) => customElements.define( nameElem, nameClass );
-    let wrapper = document.querySelector('.wrapper');
+    let fromTo = document.querySelector('.from-to');
+    let routes = document.querySelector('.routes');
+    let record = document.querySelector('.record');
     let valOne;
+    let objDateForSend = {}; //обьект для отправки данных на сервер после заполнения формы по заказу
+
+    //перенести создание классов в одну функцию по созданию класа
 
     //Подумать над решением выбора города.
     // Т.е если выбран "Х", то в селекте ""куда" будут все пункты кроме "Х".
@@ -22,7 +27,10 @@
         }
 
         defineElem('caption-elem', CaptionElem);
-        createElem(wrapper , 'caption-elem').style = `display: block`;
+        createElem(fromTo , 'caption-elem').style = `
+            display: flex;
+            align-items: center;
+        `;
     }
 
     function createClassSelectionElem( textLabel , nameSelect , checkValue = function(){} , nameTag ) {
@@ -44,13 +52,16 @@
             }
         }
         defineElem(nameTag, SelectionElem);
-        createElem(wrapper , nameTag).style.display = nameSelect === 'way-to' ? 'none' : 'block';
+        createElem(fromTo , nameTag).style = `
+            display: ${nameSelect === 'way-to' ? 'none' : 'block'};
+            width: 50%;
+        `;
     }
     //--------------------------------------------------------------------------
 
 
     function createClassAboutWay () {
-        let btnBuy;
+        let btnOrder;
 
         return class AboutWayElem extends HTMLElement {
             constructor () {
@@ -59,8 +70,8 @@
                 let aboutWay = document.querySelector ( "#about_way" );
                 this.shadow.appendChild ( aboutWay.content.cloneNode ( true ) )
 
-                btnBuy = this.shadow.querySelector('.buy-btn');
-                btnBuy.addEventListener('click' , createOrderSheet)
+                btnOrder = this.shadow.querySelector('.buy-btn');
+                btnOrder.addEventListener('click' , createOrderSheet)
             }
             connectedCallback() {
                 console.log(
@@ -75,11 +86,37 @@
             }
             disconnectedCallback() {
                 console.log('I am removed now');
-                btnBuy.removeEventListener('click' , createOrderSheet)
+                btnOrder.removeEventListener('click' , createOrderSheet)
             }
         }
     }
     defineElem('about-way', createClassAboutWay());
+
+
+    function createClassformOrder() {
+        let btnBuyTicket;
+        //обработчик события на инпутах
+        //проверка инпутов перед отправкой формы
+
+        return class formOrder extends HTMLElement {
+            constructor() {
+                super()
+                this.shadow = this.attachShadow ( { mode: 'open' } );
+                let aboutWay = document.querySelector ( "#form_order" );
+                this.shadow.appendChild ( aboutWay.content.cloneNode ( true ) )
+
+                btnBuyTicket = this.shadow.querySelector('.buy-ticket');
+                btnBuyTicket.addEventListener('click' , sendingData)
+            }
+            disconnectedCallback() {
+                console.log('I am removed now');
+                btnBuyTicket.removeEventListener('click' , sendingData)
+            }
+        }
+    }
+    defineElem('form-order', createClassformOrder());
+
+    //----------------------------------------------------------------------------
 
     function addOptions(options , sel) {
         options.forEach ( val => {
@@ -114,14 +151,29 @@
         console.log(e.target.value);
 
         document.querySelector('about-way') ? document.querySelector('about-way').remove() : null;
+        document.querySelector('form-order') ? document.querySelector('form-order').remove() : null;
 
-        createElem(wrapper , 'about-way').style = `display: block`;
+        createElem(routes , 'about-way').style = `display: block`;
     }
 
     //EventListener
     function createOrderSheet(e) {
-            console.log('createOrderSheet')
+        console.log('createOrderSheet');
+        createElem(record , 'form-order').style = `display: block`;
     }
+
+    function sendingData(e) {
+        console.log('Ваши данные приняты');
+
+        document.querySelector('.module').style.display="block";
+        document.body.classList.add('open-modal')
+
+        setTimeout(()=>{
+            document.querySelector('.module').style.display="none";
+            document.body.classList.remove('open-modal')
+        } , 5000)
+    }
+
 
     //--------------------------------------------------------------------------------------------------
     createCaption ();
