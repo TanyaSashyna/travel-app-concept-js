@@ -11,13 +11,21 @@ body {
 .open-modal {
 	overflow: hidden;
 }
-
+.wrapper {
+	max-width: 1200px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
 .from-to {
 	display: flex;
     flex-wrap: wrap;
 	padding: 20px 0;
 }
-
+.from-to,
+.routes,
+.record {
+	background: #fff;
+}
 .module {
 	display: none;
 	position: fixed;

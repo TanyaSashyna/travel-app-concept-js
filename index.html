@@ -6,7 +6,6 @@
     <title>Module Js</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
-    <link href="css/datepicker.min.css" rel="stylesheet" type="text/css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -89,7 +88,8 @@
                 flex-wrap: wrap;
                 padding: 40px 20px;
                 font-family: 'Roboto', sans-serif;
-                background: #fff;
+                border-top: 1px solid #b3b3b3;
+                border-bottom: 1px solid #b3b3b3;
             }
             .way-head {
                 width: 100%;
@@ -149,6 +149,7 @@
                 border: 1px solid;
                 transition: all 0.35s ease;
                 outline: none;
+                cursor: pointer;
             }
             .btn-wrap .buy-btn:hover {
                 color: #3ab1bf;
@@ -200,6 +201,7 @@
                 color: #b3b3b3;
                 outline: none;
                 border: 1px solid #b3b3b3;
+                background: #f9f9f9;
                 transition: all 0.3s ease;
                 box-sizing: border-box;
             }
@@ -213,10 +215,19 @@
                 border: 1px solid;
                 transition: all 0.35s ease;
                 outline: none;
+                cursor: pointer;
             }
             form .buy-ticket:hover {
                 color: #3ab1bf;
                 background-color: #fff;
+            }
+            form .buy-ticket:disabled {
+                opacity: 0.7;
+            }
+            form .buy-ticket:disabled:hover {
+                cursor: not-allowed;
+                background-color: #3ab1bf;
+                color: #fff;
             }
         </style>
         <form>
@@ -230,7 +241,7 @@
                 <input type="phone" name="phone" placeholder="Телефон">
             </div>
             <div class="form-group">
-                <input type="text" name="date" placeholder="Дата отправления">
+                <input type="date" name="date" placeholder="Дата отправления">
             </div>
             <div>
                 <button type="button" class="buy-ticket">Заказать билет</button>
@@ -238,9 +249,12 @@
         </form>
     </template>
 
-    <div class="from-to"></div>
-    <div class="routes"></div>
-    <div class="record"></div>
+    <div class="wrapper">
+        <div class="from-to"></div>
+        <div class="routes"></div>
+        <div class="record"></div>
+    </div>
+
     <div class="module">
         <div class="module-content">
             <div class="module-body">
@@ -272,7 +286,6 @@
 
         connectedCallback и disconnectedCallback ==> https://habr.com/ru/post/444662/
 -->
-<!-- Здесь нужен JQuery   <script src="js/datepicker.min.js"></script>-->
     <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>
