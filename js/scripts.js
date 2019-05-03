@@ -9,7 +9,7 @@
     let objDateForSend = {}; //обьект для отправки данных на сервер после заполнения формы по заказу
 
     //перенести создание классов в одну функцию по созданию класа
-    
+
     const options = ['Выберите город', 'Харьков', 'Железный Порт', 'Скадовск', 'Лазурное', 'Одесса - Затока'];
 
     function createCaption() {
@@ -118,7 +118,7 @@
             }
 
             disconnectedCallback() {
-                console.log('I am removed now');
+                //console.log('I am removed now');
                 btnBuyTicket.removeEventListener('click', sendingData);
                 inputsForm.removeEventListener('click', getValue)
             }
@@ -208,16 +208,11 @@
         console.log(val);
         if (val !== 0) {
             checkRes = false;
-            //добавить спаны с текстом ошибок для инпутов
-            // и вешать на них display: block, если значение не валидное
-            //$(item).addClass('error');
-            console.log('error')
+            elem.nextElementSibling.style.display = 'block';
 
         } else if (val === 0) {
-            console.log('good');
+            elem.nextElementSibling.style.display = 'none';
             objDateForSend[elem.name] = elem.value;
-            //$(item).removeClass('error');
-            //вешать на спаны display: none, если значение валидное
         }
     }
 
@@ -233,10 +228,6 @@
     //EventListener
     function getValue(e) {
         checkInput(e);
-        //checkInput(e);
-        //objDateForSend[e.target.name] = e.target.value;
-
-        //checkInput(e) ? objDateForSend[e.target.name] = e.target.value : console.log('error');
     }
 
     //EventListener

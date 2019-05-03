@@ -183,9 +183,18 @@
                 font-family: 'Roboto', sans-serif;
             }
             form .form-group {
+                position: relative;
                 width: 50%;
-                padding: 0 10px 20px;
+                padding: 0 10px 30px;
                 box-sizing: border-box;
+            }
+            form .form-group .error {
+                display: none;
+                position: absolute;
+                bottom: 15px;
+                left: 10px;
+                font-size: 12px;
+                color: #bf3a3a;
             }
             form div:last-child {
                 width: 100%;
@@ -233,15 +242,19 @@
         <form>
             <div class="form-group">
                 <input type="text" name="firstName" placeholder="Имя">
+                <span class="error">Не верно заполенно поле</span>
             </div>
             <div class="form-group">
                 <input type="text" name="lastName" placeholder="Фамилия">
+                <span class="error">Не верно заполенно поле</span>
             </div>
             <div class="form-group">
                 <input type="phone" name="phone" placeholder="Телефон">
+                <span class="error">Не верно заполенно поле</span>
             </div>
             <div class="form-group">
                 <input type="date" name="date" placeholder="Дата отправления">
+                <span class="error">Выберете дату</span>
             </div>
             <div>
                 <button type="button" class="buy-ticket">Заказать билет</button>
