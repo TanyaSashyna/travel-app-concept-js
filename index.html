@@ -10,35 +10,7 @@
 </head>
 <body>
     <template id="caption">
-        <style>
-            .caption-wrap {
-                padding: 20px;
-                width: 50%;
-            }
-            .caption-img {
-                padding: 20px;
-                width: 50%;
-            }
-            .caption-img img {
-                width: 100%;
-            }
-            .caption {
-                max-width: 600px;
-                width: 100%;
-                padding-bottom: 20px;
-                margin: 0;
-                font-size: 25px;
-                font-family: 'Roboto', sans-serif;
-                font-weight: 700;
-            }
-            .legend {
-                margin: 0;
-                font-size: 17px;
-                font-family: 'Roboto', sans-serif;
-                color: #929191;
-                text-align: justify;
-            }
-        </style>
+        <style>@import "css/main.css";</style>
         <div class="caption-wrap">
             <h2 class="caption">Пассажирские перевозки</h2>
             <p class="legend">
@@ -52,29 +24,7 @@
     </template>
 
     <template id="selection">
-        <style>
-            .wrap-way {
-                padding: 20px;
-            }                
-            .wrap-way label {
-                display: block;
-                padding-bottom: 10px;
-                font-size: 18px;
-                font-family: 'Roboto', sans-serif;
-                font-weight: 700;
-            }
-            .wrap-way select {
-                display: block;
-                width: 100%;
-                height: 50px;
-                padding: 5px 5px 5px 10px;
-                background: #3ab1bf;
-                border: none;
-                outline: none;
-                color: #fff;
-                font-size: 15px;
-            }
-        </style>
+        <style>@import "css/main.css";</style>
         <div class="wrap-way">
             <label></label>
             <select></select>
@@ -82,80 +32,7 @@
     </template>
 
     <template id="about_way">
-        <style>
-            .way-content {
-                display: flex;
-                flex-wrap: wrap;
-                padding: 40px 20px;
-                font-family: 'Roboto', sans-serif;
-                border-top: 1px solid #b3b3b3;
-                border-bottom: 1px solid #b3b3b3;
-            }
-            .way-head {
-                width: 100%;
-                padding-bottom: 20px;
-                text-align: center;
-                margin: 0;
-            }
-            .way-img {
-                width: 50%;
-                padding: 20px;
-                box-sizing: border-box;
-            }
-            .way-img img {
-                width: 100%;
-            }
-            .way-info {
-                width: 50%;
-                padding: 20px;
-                box-sizing: border-box;
-            }
-            .way-info h4 {
-                font-size: 18px;
-                text-transform: uppercase;
-                padding-bottom: 20px;
-                margin: 0;
-                font-weight: 400;
-            }
-            .way-info h4 .when {
-                text-transform: none;
-            }
-            .way-info h4 .when,
-            .way-info .time,
-            .way-info .where,
-            .way-info .city-time,
-            .way-info .price {
-                font-weight: 700;
-            }
-            .way-info .way-time,
-            .way-info .way-where,
-            .way-info .arrival {
-                padding-bottom: 10px;
-            }
-            .way-info .price {
-                font-size: 21px;
-                font-weight: 700;
-                color: #3399cc;
-                text-align: right;
-                padding: 20px 0 30px;
-            }
-            .btn-wrap .buy-btn {
-                padding: 10px 15px;
-                background-color: #3ab1bf;
-                color: #fff;
-                text-transform: uppercase;
-                font-size: 15px;
-                border-radius: 2px;
-                border: 1px solid;
-                transition: all 0.35s ease;
-                outline: none;
-                cursor: pointer;
-            }
-            .btn-wrap .buy-btn:hover {
-                color: #3ab1bf;
-                background-color: #fff;
-            }
-        </style>
+        <style>@import "css/main.css";</style>
         <div class="way-content">
             <h1 class="way-head">Харьков - Кирилловка</h1>
             <div class="way-img">
@@ -168,77 +45,14 @@
                 <div class="arrival">Прибытие: <span class="city-time">Кирилловка 07:00</span></div>
                 <div class="price">400 грн</div>
                 <div class="btn-wrap">
-                    <button class="buy-btn">Заказать</button>
+                    <button class="btn buy-btn">Заказать</button>
                 </div>
             </div>
         </div>
     </template>
 
     <template id="form_order">
-        <style>
-            form {
-                display: flex;
-                flex-wrap: wrap;
-                padding: 40px 10px;
-                font-family: 'Roboto', sans-serif;
-            }
-            form .form-group {
-                position: relative;
-                width: 50%;
-                padding: 0 10px 30px;
-                box-sizing: border-box;
-            }
-            form .form-group .error {
-                display: none;
-                position: absolute;
-                bottom: 15px;
-                left: 10px;
-                font-size: 12px;
-                color: #bf3a3a;
-            }
-            form div:last-child {
-                width: 100%;
-                padding: 0 10px;
-                text-align: center;
-            }
-            form input {
-                display: block;
-                width: 100%;
-                height: 40px;
-                padding: 5px 5px 5px 10px;
-                font-size: 17px;
-                color: #b3b3b3;
-                outline: none;
-                border: 1px solid #b3b3b3;
-                background: #f9f9f9;
-                transition: all 0.3s ease;
-                box-sizing: border-box;
-            }
-            form .buy-ticket {
-                padding: 10px 15px;
-                background-color: #3ab1bf;
-                color: #fff;
-                text-transform: uppercase;
-                font-size: 15px;
-                border-radius: 2px;
-                border: 1px solid;
-                transition: all 0.35s ease;
-                outline: none;
-                cursor: pointer;
-            }
-            form .buy-ticket:hover {
-                color: #3ab1bf;
-                background-color: #fff;
-            }
-            form .buy-ticket:disabled {
-                opacity: 0.7;
-            }
-            form .buy-ticket:disabled:hover {
-                cursor: not-allowed;
-                background-color: #3ab1bf;
-                color: #fff;
-            }
-        </style>
+        <style>@import "css/main.css";</style>
         <form>
             <div class="form-group">
                 <input type="text" name="firstName" placeholder="Имя">
@@ -257,7 +71,7 @@
                 <span class="error">Выберете дату</span>
             </div>
             <div>
-                <button type="button" class="buy-ticket">Заказать билет</button>
+                <button type="button" class="btn buy-ticket">Заказать билет</button>
             </div>
         </form>
     </template>
