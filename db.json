@@ -1,0 +1,80 @@
+{
+  "aboutWay": {
+    "Харьков - Кирилловка": {
+      "when": "Ежедневно",
+      "departureTime": "22:00",
+      "departurePoint": "ЖД вокзал",
+      "placeArrival": "Кирилловка",
+      "arrivalTime": "07:00",
+      "cost": 400
+    },
+    "Харьков - Скадовск": {
+      "when": "Ежедневно",
+      "departureTime": "20:00",
+      "departurePoint": "ст. метро 'Дворец Спорта'",
+      "placeArrival": "Скадовск",
+      "arrivalTime": "08:00",
+      "cost": 520
+    },
+    "Харьков - Лазурное": {
+      "when": "Чт - Вс",
+      "departureTime": "15:00",
+      "departurePoint": "Ц. автовокзал",
+      "placeArrival": "Лазурное",
+      "arrivalTime": "10:00",
+      "cost": 450
+    },
+    "Кирилловка - Харьков": {
+      "when": "Ежедневно",
+      "departureTime": "21:00",
+      "departurePoint": "Автовокзал",
+      "placeArrival": "Харьков",
+      "arrivalTime": "06:00",
+      "cost": 400
+    },
+    "Скадовск - Харьков": {
+      "when": "Ежедневно",
+      "departureTime": "17:40",
+      "departurePoint": "Автостанция",
+      "placeArrival": "Харьков",
+      "arrivalTime": "06:00",
+      "cost": 520
+    },
+    "Лазурное - Харьков": {
+      "fromTo": "Лазурное - Харьков",
+      "when": "Пн-Ср",
+      "departureTime": "17:00",
+      "departurePoint": "ул.Октябрьская 132",
+      "placeArrival": "Харьков",
+      "arrivalTime": "06:00",
+      "cost": 450
+    }
+  },
+  "travelList": {
+    "2019-05-06": [
+      {
+        "firstName": "Vasya",
+        "lastName": "Ivanov",
+        "phone": "0990000000"
+      },
+      {
+        "firstName": "Jhon",
+        "lastName": "Doe",
+        "phone": "0991231212"
+      }
+    ],
+    "2019-05-07": [
+      {
+        "firstName": "Vasya",
+        "lastName": "Ivanov",
+        "phone": "0990000000"
+      },
+      {
+        "firstName": "Jhon",
+        "lastName": "Doe",
+        "phone": "0991231212"
+      }
+    ]
+  }
+}
+
