@@ -1,5 +1,6 @@
 let createElem = (wrapTagName, tagName) => wrapTagName.appendChild(document.createElement(tagName));
 let defineElem = (nameElem, nameClass) => customElements.define(nameElem, nameClass);
+
 let fromTo = document.querySelector('.from-to');
 let routes = document.querySelector('.routes');
 let record = document.querySelector('.record');

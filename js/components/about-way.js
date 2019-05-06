@@ -1,5 +1,6 @@
 function createClassAboutWay() {
     let btnOrder;
+    let createOrderSheet;
 
     return class AboutWayElem extends HTMLElement {
         constructor() {
@@ -7,6 +8,11 @@ function createClassAboutWay() {
             this.shadow = this.attachShadow({mode: 'open'});
             let aboutWay = document.querySelector("#about_way");
             this.shadow.appendChild(aboutWay.content.cloneNode(true));
+
+            createOrderSheet = function (e) {
+                console.log('createOrderSheet');
+                createElem(record, 'form-order').style = `display: block`;
+            };
 
             btnOrder = this.shadow.querySelector('.buy-btn');
             btnOrder.addEventListener('click', createOrderSheet)
@@ -30,10 +36,4 @@ function createClassAboutWay() {
         }
     }
 }
-
 defineElem('about-way', createClassAboutWay());
-
-function createOrderSheet(e) {
-    console.log('createOrderSheet');
-    createElem(record, 'form-order').style = `display: block`;
-}
