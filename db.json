@@ -1,12 +1,13 @@
 {
   "aboutWay": {
-    "Харьков - Кирилловка": {
+    "Харьков - Кириловка": {
       "when": "Ежедневно",
       "departureTime": "22:00",
       "departurePoint": "ЖД вокзал",
       "placeArrival": "Кирилловка",
       "arrivalTime": "07:00",
-      "cost": 400
+      "cost": 400,
+      "picture": "https://yastrub-tour.com.ua/images/fedot.jpg"
     },
     "Харьков - Скадовск": {
       "when": "Ежедневно",
@@ -14,7 +15,8 @@
       "departurePoint": "ст. метро 'Дворец Спорта'",
       "placeArrival": "Скадовск",
       "arrivalTime": "08:00",
-      "cost": 520
+      "cost": 520,
+      "picture": "http://kirillovka.ks.ua/wp-content/uploads/2016/12/skadovsk-9-darya-romanovna.jpg"
     },
     "Харьков - Лазурное": {
       "when": "Чт - Вс",
@@ -22,15 +24,17 @@
       "departurePoint": "Ц. автовокзал",
       "placeArrival": "Лазурное",
       "arrivalTime": "10:00",
-      "cost": 450
+      "cost": 450,
+      "picture": "http://kirillovka.ks.ua/wp-content/uploads/2017/12/lazurnoe-10-oleksandr-volodymyrovych.jpg"
     },
-    "Кирилловка - Харьков": {
+    "Кириловка - Харьков": {
       "when": "Ежедневно",
       "departureTime": "21:00",
       "departurePoint": "Автовокзал",
       "placeArrival": "Харьков",
       "arrivalTime": "06:00",
-      "cost": 400
+      "cost": 400,
+      "picture": "https://yastrub-tour.com.ua/images/fedot.jpg"
     },
     "Скадовск - Харьков": {
       "when": "Ежедневно",
@@ -38,7 +42,8 @@
       "departurePoint": "Автостанция",
       "placeArrival": "Харьков",
       "arrivalTime": "06:00",
-      "cost": 520
+      "cost": 520,
+      "picture": "http://kirillovka.ks.ua/wp-content/uploads/2016/12/skadovsk-9-darya-romanovna.jpg"
     },
     "Лазурное - Харьков": {
       "fromTo": "Лазурное - Харьков",
@@ -47,34 +52,10 @@
       "departurePoint": "ул.Октябрьская 132",
       "placeArrival": "Харьков",
       "arrivalTime": "06:00",
-      "cost": 450
+      "cost": 450,
+      "picture": "http://kirillovka.ks.ua/wp-content/uploads/2017/12/lazurnoe-10-oleksandr-volodymyrovych.jpg"
     }
   },
-  "travelList": {
-    "2019-05-06": [
-      {
-        "firstName": "Vasya",
-        "lastName": "Ivanov",
-        "phone": "0990000000"
-      },
-      {
-        "firstName": "Jhon",
-        "lastName": "Doe",
-        "phone": "0991231212"
-      }
-    ],
-    "2019-05-07": [
-      {
-        "firstName": "Vasya",
-        "lastName": "Ivanov",
-        "phone": "0990000000"
-      },
-      {
-        "firstName": "Jhon",
-        "lastName": "Doe",
-        "phone": "0991231212"
-      }
-    ]
-  }
+  "travelList": [
+  ]
 }
-
