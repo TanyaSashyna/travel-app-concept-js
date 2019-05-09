@@ -3,7 +3,7 @@ function createCaption() {
         constructor() {
             super();
             this.shadow = this.attachShadow({mode: 'open'});
-            let caption = document.querySelector("#caption");
+            let caption = document.getElementById('caption');
             this.shadow.appendChild(caption.content.cloneNode(true))
         }
     }

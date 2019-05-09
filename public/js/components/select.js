@@ -1,34 +1,6 @@
 function createClassSelectionElem(textLabel) {
     let select;
 
-    function getValSelectOne(e) {
-        valOne = e.target.value;
-        console.log(valOne);
-
-        document.querySelector('selection-to').shadowRoot.querySelector('select').innerHTML = '';
-        let newOptions = methodsLib.checkCity(e.target.value, 'Харьков');
-
-        methodsLib.addOptions(
-            newOptions,
-            document.querySelector('selection-to').shadowRoot.querySelector('select')
-        );
-
-        document.querySelector('selection-to').style.display = 'block'
-    }
-
-    function checkValue(e) {
-        valTwo = e.target.value;
-        console.log(valTwo);
-        //valOne;
-        document.querySelector('about-way') ?
-            document.querySelector('about-way').remove() : null;
-
-        document.querySelector('form-order') ?
-            document.querySelector('form-order').remove() : null;
-
-        createElem(routes, 'about-way').style.display = 'block';
-    }
-
     return class SelectionElem extends HTMLElement {
         constructor() {
             super();
@@ -43,15 +15,40 @@ function createClassSelectionElem(textLabel) {
             select = this.shadow.querySelector('select');
             select.addEventListener(
                 'change',
-                textLabel === 'Откуда' ? getValSelectOne : checkValue
+                textLabel === 'Откуда' ? this.getValSelectOne : this.checkValue
             );
+        }
+
+        getValSelectOne(e) {
+            valOne = e.target.value;
+
+            document.querySelector('selection-to').shadowRoot.querySelector('select').innerHTML = '';
+            let newOptions = methodsLib.checkCity(e.target.value, 'Харьков');
+
+            methodsLib.addOptions(
+                newOptions,
+                document.querySelector('selection-to').shadowRoot.querySelector('select')
+            );
+
+            document.querySelector('selection-to').style.display = 'block'
+        }
+
+        checkValue(e) {
+            valTwo = e.target.value;
+
+            document.querySelector('about-way') ?
+                document.querySelector('about-way').remove() : null;
+
+            document.querySelector('form-order') ?
+                document.querySelector('form-order').remove() : null;
+
+            createElem(routes, 'about-way').style.display = 'block';
         }
 
         disconnectedCallback() {
             select.removeEventListener(
-                textLabel === 'Откуда' ? getValSelectOne : checkValue
-            );
-            console.log('I am removed checkValue now')
+                textLabel === 'Откуда' ? this.getValSelectOne : this.checkValue
+            )
         }
     }
 }

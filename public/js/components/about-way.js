@@ -1,21 +1,19 @@
 function createClassAboutWay() {
     let btnOrder;
-    let createOrderSheet;
 
     return class AboutWayElem extends HTMLElement {
         constructor() {
             super();
             this.shadow = this.attachShadow({mode: 'open'});
-            let aboutWay = document.querySelector("#about_way");
+            let aboutWay = document.getElementById('about_way');
             this.shadow.appendChild(aboutWay.content.cloneNode(true));
 
-            createOrderSheet = function (e) {
-                console.log('createOrderSheet');
-                createElem(record, 'form-order').style = `display: block`;
-            };
+            btnOrder = this.shadow.getElementById('buy-btn');
+            btnOrder.addEventListener('click', this.createOrderSheet)
+        }
 
-            btnOrder = this.shadow.querySelector('.buy-btn');
-            btnOrder.addEventListener('click', createOrderSheet)
+        createOrderSheet(e) {
+            createElem(record, 'form-order').style = `display: block`;
         }
 
         connectedCallback() {
@@ -25,12 +23,11 @@ function createClassAboutWay() {
                         resp => {
                             for (let sites in resp) {
                                 if (`${valOne} - ${valTwo}`.localeCompare(sites) === 0) {
-                                    //console.log(resp[sites]);
 
                                     this.shadow.querySelector('.way-head')
                                         .textContent = sites;
 
-                                    this.shadow.querySelector('.picture').src = resp[sites].picture
+                                    this.shadow.querySelector('.picture').src = resp[sites].picture;
 
                                     this.shadow.querySelector('.when')
                                         .textContent = resp[sites].when;
@@ -54,8 +51,7 @@ function createClassAboutWay() {
         }
 
         disconnectedCallback() {
-            btnOrder.removeEventListener('click', createOrderSheet);
-            console.log('I am removed now')
+            btnOrder.removeEventListener('click', this.createOrderSheet);
         }
     }
 }
