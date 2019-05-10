@@ -4,9 +4,9 @@ let defineElem = (nameElem, nameClass) => customElements.define(nameElem, nameCl
 let fromTo = document.querySelector('.from-to');
 let routes = document.querySelector('.routes');
 let record = document.querySelector('.record');
-let valOne; //значение селекта  "Откуда"
-let valTwo; //значение селекта  "Куда"
-let checkRes; // переменная для валидации
-let objDateForSend = {}; //обьект для отправки данных на сервер после заполнения формы по заказу
+let valOne; //value select  "Откуда"
+let valTwo; //value select  "Куда"
+let checkRes; // var for validation
+let objDateForSend = {}; //the object to send data to the server after filling out the form on the order
 
 const options = ['Выберите город', 'Харьков', 'Кириловка', 'Скадовск', 'Лазурное'];

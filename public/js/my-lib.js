@@ -105,7 +105,7 @@ const methodsLib = {
     checkTravelObj: function (resp, dateKey, objDataClient) {
         let travelObj = resp.find(
             function (elem) {
-                return [dateKey] in elem
+                return dateKey in elem
             }
         );
         travelObj ?
