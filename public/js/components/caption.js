@@ -10,8 +10,3 @@ function createCaption() {
 }
 
 defineElem('caption-elem', createCaption());
-createElem(fromTo, 'caption-elem')
-    .style = `
-        display: flex;
-        align-items: center;
-    `;

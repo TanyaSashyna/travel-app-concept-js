@@ -34,6 +34,9 @@
     <template id="about_way">
         <style>@import "css/main.css";</style>
         <div class="way-content">
+            <button type="button" class="btn back" id="back">
+                <span>&larr;</span>
+            </button>
             <h1 class="way-head"></h1>
             <div class="way-img">
                 <img src="" class="picture" alt="image">
@@ -76,11 +79,7 @@
         </form>
     </template>
 
-    <div class="wrapper">
-        <div class="from-to"></div>
-        <div class="routes"></div>
-        <div class="record"></div>
-    </div>
+    <div class="wrapper"></div>
 
     <div class="module">
         <div class="module-content">
@@ -88,13 +87,13 @@
                 <p>Спасибо за сотрудничество с Нами.</p>
                 <p>Ваши заказ принят.</p>
                 <p>Наш оператор с Вами свяжется.</p>
-                <button type="button" class="btn" id="close">Ок</button>
             </div>
         </div>
     </div>
 
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/my-lib.js"></script>
+    <script type="text/javascript" src="js/div-from-to.js"></script>
     <script type="text/javascript" src="js/components/caption.js"></script>
     <script type="text/javascript" src="js/components/select.js"></script>
     <script type="text/javascript" src="js/components/about-way.js"></script>

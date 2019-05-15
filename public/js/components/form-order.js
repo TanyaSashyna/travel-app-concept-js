@@ -7,8 +7,10 @@ function createClassFormOrder() {
             super();
             this.shadow = this.attachShadow({mode: 'open'});
             let aboutWay = document.getElementById('form_order');
-            this.shadow.appendChild(aboutWay.content.cloneNode(true));
+            this.shadow.appendChild(aboutWay.content.cloneNode(true))
+        }
 
+        connectedCallback() {
             inputsForm = this.shadow.querySelectorAll('input');
 
             Array.from(inputsForm).forEach(
@@ -48,7 +50,11 @@ function createClassFormOrder() {
 
                     objDateForSend = {};
                     objDataClient ={};
-                }, 5000)
+
+                    document.querySelector('about-way').remove();
+                    document.querySelector('form-order').remove();
+                    createDivFromTo();
+                }, 3000)
             }
         }
 

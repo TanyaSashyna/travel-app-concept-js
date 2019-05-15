@@ -1,5 +1,5 @@
 function createClassAboutWay() {
-    let btnOrder;
+    let btnOrder, btnBack;
 
     return class AboutWayElem extends HTMLElement {
         constructor() {
@@ -7,16 +7,28 @@ function createClassAboutWay() {
             this.shadow = this.attachShadow({mode: 'open'});
             let aboutWay = document.getElementById('about_way');
             this.shadow.appendChild(aboutWay.content.cloneNode(true));
-
-            btnOrder = this.shadow.getElementById('buy-btn');
-            btnOrder.addEventListener('click', this.createOrderSheet)
         }
 
         createOrderSheet(e) {
-            createElem(record, 'form-order').style = `display: block`;
+            createElem(wrap, 'form-order').style = `display: block`;
+        }
+
+        backToTransfer (e) {
+            document.querySelector('about-way').remove();
+
+            document.querySelector('form-order') ?
+                document.querySelector('form-order').remove() : null;
+
+            createDivFromTo();
         }
 
         connectedCallback() {
+            btnBack = this.shadow.getElementById('back');
+            btnBack.addEventListener('click' , this.backToTransfer);
+
+            btnOrder = this.shadow.getElementById('buy-btn');
+            btnOrder.addEventListener('click', this.createOrderSheet);
+
             fetch('http://localhost:3000/aboutWay')
                 .then(resp => resp.json()
                     .then(
@@ -51,7 +63,8 @@ function createClassAboutWay() {
         }
 
         disconnectedCallback() {
-            btnOrder.removeEventListener('click', this.createOrderSheet);
+            btnBack.removeEventListener('click', this.backToTransfer);
+            btnOrder.removeEventListener('click', this.createOrderSheet)
         }
     }
 }

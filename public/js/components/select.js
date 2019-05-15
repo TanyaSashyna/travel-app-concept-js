@@ -6,9 +6,11 @@ function createClassSelectionElem(textLabel) {
             super();
             this.shadow = this.attachShadow({mode: 'open'});
 
-            let caption = document.querySelector("#selection");
-            this.shadow.appendChild(caption.content.cloneNode(true));
+            let selectTemplate = document.querySelector("#selection");
+            this.shadow.appendChild(selectTemplate.content.cloneNode(true));
+        }
 
+        connectedCallback() {
             let label = this.shadow.querySelector('label');
             label.textContent = textLabel;
 
@@ -17,18 +19,21 @@ function createClassSelectionElem(textLabel) {
                 'change',
                 textLabel === 'Откуда' ? this.getValSelectOne : this.checkValue
             );
+
+            textLabel === 'Откуда' ?
+                methodsLib.addOptions(options,this.shadow.querySelector('select')) : null
         }
 
         getValSelectOne(e) {
             valOne = e.target.value;
 
-            document.querySelector('selection-to').shadowRoot.querySelector('select').innerHTML = '';
+            let selectTo = document.querySelector('selection-to')
+                .shadowRoot.querySelector('select');
+            selectTo.innerHTML = '';
+
             let newOptions = methodsLib.checkCity(e.target.value, 'Харьков');
 
-            methodsLib.addOptions(
-                newOptions,
-                document.querySelector('selection-to').shadowRoot.querySelector('select')
-            );
+            methodsLib.addOptions( newOptions, selectTo );
 
             document.querySelector('selection-to').style.display = 'block'
         }
@@ -42,28 +47,13 @@ function createClassSelectionElem(textLabel) {
             document.querySelector('form-order') ?
                 document.querySelector('form-order').remove() : null;
 
-            createElem(routes, 'about-way').style.display = 'block';
-        }
+            createElem(wrap, 'about-way').style.display = 'block';
 
-        disconnectedCallback() {
-            select.removeEventListener(
-                textLabel === 'Откуда' ? this.getValSelectOne : this.checkValue
-            )
+            document.querySelector('.from-to').remove();
+            location.hash = 'booking';
         }
     }
 }
 
 defineElem('selection-from', createClassSelectionElem('Откуда'));
 defineElem('selection-to', createClassSelectionElem('Куда'));
-
-createElem(fromTo, 'selection-from').style.width = '50%';
-methodsLib.addOptions(
-    options,
-    document.querySelector('selection-from').shadowRoot.querySelector('select')
-);
-
-createElem(fromTo, 'selection-to')
-    .style = `
-        display: none;
-        width: 50%;
-    `;
