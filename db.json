@@ -65,6 +65,13 @@
           "lastName": "s",
           "phone": "0990000000",
           "numberOfSeats": "1"
+        },
+        {
+          "fromTo": "Харьков - Скадовск",
+          "firstName": "s",
+          "lastName": "s",
+          "phone": "0990000000",
+          "numberOfSeats": "2"
         }
       ],
       "id": 1

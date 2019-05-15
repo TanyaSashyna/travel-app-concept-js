@@ -45,27 +45,27 @@ const methodsLib = {
 
                 switch (typeInput) {
                     case 'firstName':
-                        let f = elem.value.search(/^[a-zA-Zа-яА-Я]+$/);
+                        let f = elem.value.search(regArr[0]);
                         methodsLib.checkValidation(f, elem);
                         break;
 
                     case 'lastName' :
-                        let l = elem.value.search(/^[a-zA-Zа-яА-Я]+$/);
+                        let l = elem.value.search(regArr[0]);
                         methodsLib.checkValidation(l, elem);
                         break;
 
                     case 'phone':
-                        let y = elem.value.search(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
+                        let y = elem.value.search(regArr[1]);
                         methodsLib.checkValidation(y, elem);
                         break;
 
                     case 'date':
-                        let d = elem.value.search(/[0-9]/);
+                        let d = elem.value.search(regArr[2]);
                         methodsLib.checkValidation(d, elem);
                         break;
 
                     case 'number':
-                        let n = elem.value.search(/[0-9]/);
+                        let n = elem.value.search(regArr[2]);
                         elem.value <= 0 ? n = -1 : n;
                         methodsLib.checkValidation(n, elem);
                         break;

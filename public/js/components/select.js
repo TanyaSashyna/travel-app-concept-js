@@ -24,6 +24,12 @@ function createClassSelectionElem(textLabel) {
                 methodsLib.addOptions(options,this.shadow.querySelector('select')) : null
         }
 
+        disconnectedCallback() {
+            select.removeEventListener('change' ,
+                textLabel === 'Откуда' ? this.getValSelectOne : this.checkValue
+            )
+        }
+
         getValSelectOne(e) {
             valOne = e.target.value;
 

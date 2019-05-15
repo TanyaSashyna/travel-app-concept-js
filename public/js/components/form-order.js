@@ -15,7 +15,8 @@ function createClassFormOrder() {
 
             Array.from(inputsForm).forEach(
                 elem => {
-                    elem.addEventListener('change', methodsLib.checkInput)
+                    elem.addEventListener('change', methodsLib.checkInput);
+                    elem.addEventListener('keyup' , methodsLib.checkInput)
                 }
             );
 
@@ -26,8 +27,6 @@ function createClassFormOrder() {
         sendingData(e) {
             methodsLib.checkInput(e);
 
-            console.log(objDateForSend);
-
             let objDataClient = {
                 fromTo : `${valOne} - ${valTwo}`,
                 firstName : objDateForSend.firstName,
@@ -35,7 +34,6 @@ function createClassFormOrder() {
                 phone : objDateForSend.phone,
                 numberOfSeats :objDateForSend.number
             };
-            console.log(objDataClient);
 
             let formParent = e.target.parentElement.parentElement;
 
@@ -66,7 +64,8 @@ function createClassFormOrder() {
         disconnectedCallback() {
             Array.from(inputsForm).forEach(
                 elem => {
-                    elem.removeEventListener('change', methodsLib.checkInput)
+                    elem.removeEventListener('change', methodsLib.checkInput);
+                    elem.removeEventListener('keyup' , methodsLib.checkInput)
                 }
             );
             btnBuyTicket.removeEventListener('click', this.sendingData);

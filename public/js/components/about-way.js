@@ -9,19 +9,6 @@ function createClassAboutWay() {
             this.shadow.appendChild(aboutWay.content.cloneNode(true));
         }
 
-        createOrderSheet(e) {
-            createElem(wrap, 'form-order').style = `display: block`;
-        }
-
-        backToTransfer (e) {
-            document.querySelector('about-way').remove();
-
-            document.querySelector('form-order') ?
-                document.querySelector('form-order').remove() : null;
-
-            createDivFromTo();
-        }
-
         connectedCallback() {
             btnBack = this.shadow.getElementById('back');
             btnBack.addEventListener('click' , this.backToTransfer);
@@ -65,6 +52,19 @@ function createClassAboutWay() {
         disconnectedCallback() {
             btnBack.removeEventListener('click', this.backToTransfer);
             btnOrder.removeEventListener('click', this.createOrderSheet)
+        }
+
+        createOrderSheet(e) {
+            createElem(wrap, 'form-order').style = `display: block`;
+        }
+
+        backToTransfer (e) {
+            document.querySelector('about-way').remove();
+
+            document.querySelector('form-order') ?
+                document.querySelector('form-order').remove() : null;
+
+            createDivFromTo();
         }
     }
 }
