@@ -26,12 +26,17 @@ function createClassFormOrder() {
         sendingData(e) {
             methodsLib.checkInput(e);
 
+            console.log(objDateForSend);
+
             let objDataClient = {
                 fromTo : `${valOne} - ${valTwo}`,
                 firstName : objDateForSend.firstName,
                 lastName : objDateForSend.lastName,
-                phone : objDateForSend.phone
+                phone : objDateForSend.phone,
+                numberOfSeats :objDateForSend.number
             };
+            console.log(objDataClient);
+
             let formParent = e.target.parentElement.parentElement;
 
             if (checkRes) {

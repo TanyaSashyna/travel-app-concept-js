@@ -41,23 +41,33 @@ const methodsLib = {
             .filter(elem => elem.nodeName === 'INPUT')
             .forEach(elem => {
 
-                let typeInput = elem.getAttribute('type');
+                let typeInput = elem.getAttribute('name');
 
                 switch (typeInput) {
-                    case 'text':
-                        let x = elem.value.search(/^[a-zA-Zа-яА-Я]+$/);
-                        methodsLib.checkValidation(x, elem);
+                    case 'firstName':
+                        let f = elem.value.search(/^[a-zA-Zа-яА-Я]+$/);
+                        methodsLib.checkValidation(f, elem);
+                        break;
+
+                    case 'lastName' :
+                        let l = elem.value.search(/^[a-zA-Zа-яА-Я]+$/);
+                        methodsLib.checkValidation(l, elem);
                         break;
 
                     case 'phone':
-                        let y = elem.value.search(/[0-9]/);
-                        elem.value.length < 10 ? y = -1 : y;
+                        let y = elem.value.search(/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/);
                         methodsLib.checkValidation(y, elem);
                         break;
 
                     case 'date':
                         let d = elem.value.search(/[0-9]/);
                         methodsLib.checkValidation(d, elem);
+                        break;
+
+                    case 'number':
+                        let n = elem.value.search(/[0-9]/);
+                        elem.value <= 0 ? n = -1 : n;
+                        methodsLib.checkValidation(n, elem);
                         break;
                 }
             });

@@ -59,19 +59,24 @@
         <form>
             <div class="form-group">
                 <input type="text" name="firstName" placeholder="Имя">
-                <span class="error">Не верно заполенно поле</span>
+                <span class="error">Введите имя</span>
             </div>
             <div class="form-group">
                 <input type="text" name="lastName" placeholder="Фамилия">
-                <span class="error">Не верно заполенно поле</span>
+                <span class="error">Введите Фамилию</span>
             </div>
             <div class="form-group">
                 <input type="phone" name="phone" placeholder="Телефон">
-                <span class="error">Не верно заполенно поле</span>
+                <span class="error">Введите номер телефона</span>
             </div>
             <div class="form-group">
                 <input type="date" name="date" placeholder="Дата отправления">
                 <span class="error">Выберете дату</span>
+            </div>
+            <div class="form-group col-sm">
+                <label>Количество мест:</label>
+                <input type="text" name="number" placeholder="0" value="1">
+                <span class="error">Не корректное количество мест</span>
             </div>
             <div>
                 <button type="button" class="btn" id="buy-ticket">Заказать билет</button>

@@ -58,12 +58,13 @@
   },
   "travelList": [
     {
-      "2019-05-09": [
+      "2019-05-15": [
         {
-          "fromTo": "Харьков - Кириловка",
-          "firstName": "q",
-          "lastName": "q",
-          "phone": "0990000000"
+          "fromTo": "Кириловка - Харьков",
+          "firstName": "s",
+          "lastName": "s",
+          "phone": "0990000000",
+          "numberOfSeats": "1"
         }
       ],
       "id": 1
