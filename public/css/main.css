@@ -186,12 +186,21 @@ header nav {
     list-style: none;
 }
 
+.nav-list .link span,
 .nav-list .link a {
-    text-decoration: none;
     display: block;
     padding: 15px 20px;
     font-size: 14px;
     color: #fff;
+}
+
+.nav-list .link a {
+    text-decoration: none;
+    transition: 0.35s ease;
+}
+
+.nav-list .link a:hover {
+    background: #31a7b4;
 }
 
 .nav-list .link:not(:last-child) {
@@ -199,7 +208,7 @@ header nav {
 }
 
 .nav-list .link .submenu {
-    padding-left: 20px;
+    /*padding-left: 20px;*/
     padding-bottom: 10px;
 }
 
@@ -213,7 +222,7 @@ header nav {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 5px;
+    left: 25px;
     margin: auto;
     width: 3px;
     height: 3px;
@@ -222,7 +231,7 @@ header nav {
 }
 
 .nav-list .link .submenu li a {
-    padding: 7px 20px;
+    padding: 7px 20px 7px 40px;
 }
 
 .logout-block {
