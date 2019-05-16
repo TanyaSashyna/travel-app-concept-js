@@ -55,7 +55,8 @@ function createClassAboutWay() {
         }
 
         createOrderSheet(e) {
-            createElem(wrap, 'form-order').style = `display: block`;
+            !document.querySelector('form-order') ?
+                createElem(wrap, 'form-order') : null;
         }
 
         backToTransfer (e) {

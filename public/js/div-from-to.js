@@ -2,23 +2,13 @@ function createDivFromTo() {
     let divFromTo = createElem(wrap, 'div');
     divFromTo.className = 'from-to';
 
-    createElem(divFromTo, 'caption-elem')
-        .style = `
-            display: flex;
-            align-items: center;
-        `;
+    createElem(divFromTo, 'caption-elem');
 
     createElem(divFromTo, 'selection-from')
-        .style = `
-            display: block;
-            width: 50%;
-        `;
+        .style.display = 'block';
 
     createElem(divFromTo, 'selection-to')
-        .style = `
-            display: none;
-            width: 50%;
-        `;
+        .style.display = 'none';
 
     location.hash = 'transfer';
 }
