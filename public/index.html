@@ -86,7 +86,7 @@
 
     <header>
         <nav>
-            <button type="button" class="burger">
+            <button type="button" class="burger" id="burger">
                 <i class="menu-icon"></i>
             </button>
             <ul class="menu-sm">
@@ -104,6 +104,49 @@
         </nav>
     </header>
 
+    <div class="sidebar" id="sidebar">
+        <div class="user-info">
+            <img src="img/profile.svg" alt="avatar">
+            <p>User Name</p>
+        </div>
+
+        <div class="nav-list">
+            <ul>
+                <li class="link">
+                    <a href="#">Профиль</a>
+                </li>
+                <li class="link">
+                    <a href="#">Пассажирские перевозки</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="#">Такси</a>
+                        </li>
+                        <li>
+                            <a href="#">Междугородние</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="link">
+                    <a href="#">История</a>
+                </li>
+                <li class="link">
+                    <a href="#">Скидки</a>
+                </li>
+                <li class="link">
+                    <a href="#">Настройки</a>
+                </li>
+                <li class="link">
+                    <a href="#">Контакты</a>
+                </li>
+            </ul>
+        </div>
+        <div class="logout-block">
+            <button type="button" class="btn-logout">
+                <img src="img/logout.svg" alt="logout">
+            </button>
+        </div>
+    </div>
+
     <div class="wrapper"></div>
 
     <div class="module">
@@ -118,6 +161,7 @@
 
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/my-lib.js"></script>
+    <script type="text/javascript" src="js/sidebar.js"></script>
     <script type="text/javascript" src="js/div-from-to.js"></script>
     <script type="text/javascript" src="js/components/caption.js"></script>
     <script type="text/javascript" src="js/components/select.js"></script>
