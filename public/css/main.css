@@ -88,7 +88,7 @@ header nav {
 }
 
 .burger.menu-on {
-    transform: translate(260px);
+    transform: translate(250px);
 }
 
 .burger.menu-on .menu-icon{
