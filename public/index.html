@@ -84,6 +84,35 @@
         </form>
     </template>
 
+    <template id="user-profile">
+        <style>@import "css/main.css";</style>
+        <div class="user-profile">
+            <div class="user-avatar">
+                <div class="avatar">
+                    <img src="img/avatar.svg">
+                </div>
+            </div>
+            <div class="info">
+                <div class="item">
+                    <label>Имя: </label>
+                    <span id="userFirstName">FirstName</span>
+                </div>
+                <div class="item">
+                    <label>Фамилия: </label>
+                    <span id="userLastName">LastName</span>
+                </div>
+                <div class="item">
+                    <label>Телефон: </label>
+                    <span id="userPhone">(099) 000 00 00</span>
+                </div>
+                <div class="item">
+                    <label>Город: </label>
+                    <span id="userCity">Харкьов</span>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <header>
         <nav>
             <button type="button" class="burger" id="burger">
@@ -113,7 +142,7 @@
         <div class="nav-list">
             <ul>
                 <li class="link">
-                    <a href="#">Профиль</a>
+                    <a href="#" class="profile">Профиль</a>
                 </li>
                 <li class="link">
                     <a href="#">Пассажирские перевозки</a>
@@ -122,7 +151,7 @@
                             <a href="#">Такси</a>
                         </li>
                         <li>
-                            <a href="#">Междугородние</a>
+                            <a href="#" class="intercity">Междугородние</a>
                         </li>
                     </ul>
                 </li>
@@ -164,6 +193,7 @@
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/my-lib.js"></script>
     <script type="text/javascript" src="js/sidebar.js"></script>
+    <script type="text/javascript" src="js/components/user-profile.js"></script>
     <script type="text/javascript" src="js/div-from-to.js"></script>
     <script type="text/javascript" src="js/components/caption.js"></script>
     <script type="text/javascript" src="js/components/select.js"></script>

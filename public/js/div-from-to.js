@@ -1,4 +1,6 @@
 function createDivFromTo() {
+    wrap.innerHTML !== "" ? wrap.innerHTML = '' : null;
+
     let divFromTo = createElem(wrap, 'div');
     divFromTo.className = 'from-to';
 
@@ -16,3 +18,11 @@ function createDivFromTo() {
 window.onload = function (e){
     createDivFromTo();
 };
+
+function createTransferpage() {
+    intercity.addEventListener('click' , function (e) {
+        e.preventDefault();
+        createDivFromTo();
+    })
+}
+createTransferpage();

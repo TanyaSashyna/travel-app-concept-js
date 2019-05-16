@@ -510,6 +510,43 @@ form-order {
     border-top: 1px solid #b3b3b3;
 }
 
+.user-profile .user-avatar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.user-profile .avatar {
+    max-width: 175px;
+    max-height: 175px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-profile .info {
+    flex-grow: 1;
+    padding: 20px 0;
+    border-top: 1px solid #b3b3b3;
+}
+.user-profile .item {
+    display: flex;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.user-profile .item label {
+    width: 50%;
+    text-align: right;
+    padding-right: 5px;
+}
+.user-profile .item span {
+    width: 50%;
+    padding-left: 5px;
+    font-weight: 700;
+}
+
 @media (max-width: 767px) {
     caption-elem {
         flex-direction: column;
@@ -523,5 +560,19 @@ form-order {
     .way-info,
     form .form-group {
         width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .user-profile .item {
+        display: block;
+        font-size: 16px;
+    }
+    .user-profile .item label {
+        width: auto;
+        text-align: left;
+    }
+    .user-profile .item span {
+        width: auto;
     }
 }
