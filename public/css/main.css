@@ -325,14 +325,12 @@ header .logo img {
     padding-bottom: 20px;
     margin: 0;
     font-size: 25px;
-    font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
 
 .legend {
     margin: 0;
     font-size: 17px;
-    font-family: 'Roboto', sans-serif;
     color: #929191;
     text-align: justify;
 }
@@ -345,7 +343,6 @@ header .logo img {
     display: block;
     padding-bottom: 10px;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
     font-weight: 700;
 }
 
@@ -365,7 +362,6 @@ header .logo img {
     display: flex;
     flex-wrap: wrap;
     padding: 20px 0 40px;
-    font-family: 'Roboto', sans-serif;
 }
 .way-content .back {
     font-size: 21px;
@@ -388,7 +384,6 @@ header .logo img {
 .way-img {
     width: 50%;
     padding: 20px;
-    box-sizing: border-box;
 }
 
 .way-img img {
@@ -398,7 +393,6 @@ header .logo img {
 .way-info {
     width: 50%;
     padding: 20px;
-    box-sizing: border-box;
 }
 
 .way-info h4 {
@@ -439,14 +433,44 @@ form {
     display: flex;
     flex-wrap: wrap;
     padding: 40px 10px;
-    font-family: 'Roboto', sans-serif;
 }
 
 form .form-group {
     position: relative;
     width: 50%;
     padding: 0 10px 30px;
-    box-sizing: border-box;
+}
+
+form .user-avatar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+form .avatar {
+    max-width: 175px;
+    max-height: 175px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+form .input-avatar {
+    display: none;
+}
+
+form .info {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 0;
+}
+
+form .info .form-group {
+    position: relative;
+    width: 50%;
+    padding: 0 10px 30px;
 }
 
 form .form-group.col-sm {
@@ -490,7 +514,6 @@ form input {
     border: 1px solid #b3b3b3;
     background: #f9f9f9;
     transition: all 0.3s ease;
-    box-sizing: border-box;
 }
 
 .module {

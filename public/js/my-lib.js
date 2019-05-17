@@ -1,4 +1,8 @@
 const methodsLib = {
+    cleaningWrap : function () {
+        wrap.innerHTML !== "" ? wrap.innerHTML = '' : null
+    },
+
     addOptions: function (options, sel) {
         Array.isArray(options) ?
             options.forEach(val => {

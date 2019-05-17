@@ -60,10 +60,11 @@ function createClassAboutWay() {
         }
 
         backToTransfer (e) {
-            document.querySelector('about-way').remove();
+            methodsLib.cleaningWrap();
+            /*document.querySelector('about-way').remove();
 
             document.querySelector('form-order') ?
-                document.querySelector('form-order').remove() : null;
+                document.querySelector('form-order').remove() : null;*/
 
             createDivFromTo();
         }

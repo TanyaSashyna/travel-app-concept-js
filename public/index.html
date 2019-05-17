@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Module Js</title>
+    <title>Travel app</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet" type="text/css">
@@ -113,6 +113,36 @@
         </div>
     </template>
 
+    <template id="settings-page">
+        <style>@import "css/main.css";</style>
+        <form>
+            <div class="user-avatar">
+                <label for="avatarFile" class="avatar">
+                    <img src="img/avatar.svg" id="avatar-img">
+                </label>
+                <input type="file" name="avatar" id="avatarFile" class="input-avatar">
+            </div>
+            <div class="info">
+                <div class="form-group">
+                    <input type="text" name="firstName" placeholder="Имя">
+                    <span class="error">Введите имя</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="lastName" placeholder="Фамилия">
+                    <span class="error">Введите Фамилию</span>
+                </div>
+                <div class="form-group">
+                    <input type="phone" name="phone" placeholder="Телефон">
+                    <span class="error">Введите номер телефона</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="lastName" placeholder="Город">
+                    <span class="error">Введите город</span>
+                </div>
+            </div>
+        </form>
+    </template>
+
     <header>
         <nav>
             <button type="button" class="burger" id="burger">
@@ -155,7 +185,7 @@
                             <a href="">Такси</a>
                         </li>
                         <li>
-                            <a href="" class="intercity">Междугородние</a>
+                            <a href="" id="intercity">Междугородние</a>
                         </li>
                     </ul>
                 </li>
@@ -166,7 +196,7 @@
                     <a href="">Скидки</a>
                 </li>
                 <li class="link">
-                    <a href="">Настройки</a>
+                    <a href="" id="settings">Настройки</a>
                 </li>
                 <li class="link">
                     <a href="">Контакты</a>
@@ -197,13 +227,16 @@
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/my-lib.js"></script>
     <script type="text/javascript" src="js/sidebar.js"></script>
-    <script type="text/javascript" src="js/components/user-profile.js"></script>
     <script type="text/javascript" src="js/div-from-to.js"></script>
+
+    <script type="text/javascript" src="js/components/user-profile.js"></script>
     <script type="text/javascript" src="js/components/caption.js"></script>
     <script type="text/javascript" src="js/components/select.js"></script>
     <script type="text/javascript" src="js/components/about-way.js"></script>
     <script type="text/javascript" src="js/components/form-order.js"></script>
+    <script type="text/javascript" src="js/components/settings.js"></script>
 
 <!--Пример: https://panch.com.ua/pass_transfer-->
+<!--    https://wp-kama.ru/id_9026/jquery-ajax-zagruzka-fajlov-na-server.html#shag-1.-dannye-iz-polya-file-->
 </body>
 </html>

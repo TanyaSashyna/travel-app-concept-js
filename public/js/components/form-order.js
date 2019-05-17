@@ -2,7 +2,7 @@ function createClassFormOrder() {
     let btnBuyTicket,
         inputsForm;
 
-    return class formOrder extends HTMLElement {
+    return class FormOrder extends HTMLElement {
         constructor() {
             super();
             this.shadow = this.attachShadow({mode: 'open'});

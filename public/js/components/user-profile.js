@@ -1,5 +1,7 @@
+//Этот компонент еще в разработке. Данные пока статические
+
 function createUserProfile () {
-    return class userProfile extends HTMLElement {
+    return class UserProfile extends HTMLElement {
         constructor() {
             super();
             this.shadow = this.attachShadow({mode: 'open'});

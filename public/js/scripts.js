@@ -1,6 +1,7 @@
 const wrap = document.querySelector('.wrapper');
 const btnProfile = document.getElementsByClassName('profile');
-const intercity = document.querySelector('.intercity');
+const intercityLink = document.getElementById('intercity');
+const settingsLink = document.getElementById('settings');
 let valOne; //value select  "Откуда"
 let valTwo; //value select  "Куда"
 let checkRes; // var for validation

@@ -1,5 +1,5 @@
 function createDivFromTo() {
-    wrap.innerHTML !== "" ? wrap.innerHTML = '' : null;
+    methodsLib.cleaningWrap();
 
     let divFromTo = createElem(wrap, 'div');
     divFromTo.className = 'from-to';
@@ -19,10 +19,10 @@ window.onload = function (e){
     createDivFromTo();
 };
 
-function createTransferpage() {
-    intercity.addEventListener('click' , function (e) {
+function createTransferPage() {
+    intercityLink.addEventListener('click' , function (e) {
         e.preventDefault();
         createDivFromTo();
     })
 }
-createTransferpage();
+createTransferPage();
