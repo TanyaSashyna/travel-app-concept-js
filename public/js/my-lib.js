@@ -3,6 +3,18 @@ const methodsLib = {
         wrap.innerHTML !== "" ? wrap.innerHTML = '' : null
     },
 
+    createPage: function ( collectionElem , newTagName) {
+        if(collectionElem.constructor.name === 'HTMLCollection') {
+            Array.from(collectionElem).forEach(
+                elem => elem.addEventListener('click' , function (e) {
+                    e.preventDefault();
+                    methodsLib.cleaningWrap();
+                    createElem(wrap , newTagName)
+                })
+            )
+        }
+    },
+
     addOptions: function (options, sel) {
         Array.isArray(options) ?
             options.forEach(val => {
@@ -21,7 +33,6 @@ const methodsLib = {
     },
 
     checkValidation: function (val, elem) {
-
         if (val !== 0) {
             checkRes = false;
             elem.nextElementSibling.style.display = 'block';
@@ -41,10 +52,10 @@ const methodsLib = {
 
     checkInput: function (e) {
         checkRes = true;
+
         Array.from(e.target.parentElement.parentElement)
             .filter(elem => elem.nodeName === 'INPUT')
             .forEach(elem => {
-
                 let typeInput = elem.getAttribute('name');
 
                 switch (typeInput) {
@@ -56,6 +67,11 @@ const methodsLib = {
                     case 'lastName' :
                         let l = elem.value.search(regArr[0]);
                         methodsLib.checkValidation(l, elem);
+                        break;
+
+                    case 'city' :
+                        let c = elem.value.search(regArr[0]);
+                        methodsLib.checkValidation(c, elem);
                         break;
 
                     case 'phone':
@@ -130,5 +146,17 @@ const methodsLib = {
                 travelObj.id
             ) :
             this.methodPost(dateKey, objDataClient)
+    },
+
+    getCookie: function () {
+        return Object.assign( {} ,
+            ...document.cookie.split('; ').map(
+                str => {
+                    return {
+                        [str.split('=')[0]] : str.split('=')[1]
+                    }
+                }
+            )
+        )
     }
 };

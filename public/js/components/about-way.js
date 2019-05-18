@@ -61,11 +61,6 @@ function createClassAboutWay() {
 
         backToTransfer (e) {
             methodsLib.cleaningWrap();
-            /*document.querySelector('about-way').remove();
-
-            document.querySelector('form-order') ?
-                document.querySelector('form-order').remove() : null;*/
-
             createDivFromTo();
         }
     }

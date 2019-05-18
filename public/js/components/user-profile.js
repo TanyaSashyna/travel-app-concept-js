@@ -1,5 +1,3 @@
-//Этот компонент еще в разработке. Данные пока статические
-
 function createUserProfile () {
     return class UserProfile extends HTMLElement {
         constructor() {
@@ -11,20 +9,24 @@ function createUserProfile () {
 
         connectedCallback() {
             location.hash = 'profile';
+
+            let avatar = this.shadow.getElementById('avatar');
+            userData.imgSrc ? avatar.style.backgroundImage = `url(${atob(userData.imgSrc)})` : null;
+
+            let userFirstName = this.shadow.getElementById('userFirstName');
+            userFirstName.textContent = userData.firstName;
+
+            let userLastName = this.shadow.getElementById('userLastName');
+            userLastName.textContent = userData.lastName;
+
+            let userPhone = this.shadow.getElementById('userPhone');
+            userPhone.textContent = userData.phone;
+
+            let userCity = this.shadow.getElementById('userCity');
+            userCity.textContent = userData.city;
         }
     }
 }
 
 defineElem('user-profile', createUserProfile());
-
-
-function createProfilePage () {
-    Array.from(btnProfile).forEach(
-        elem => elem.addEventListener('click' , function (e) {
-            e.preventDefault();
-            wrap.innerHTML = '';
-            createElem(wrap , 'user-profile')
-        })
-    )
-}
-createProfilePage ();
+methodsLib.createPage(btnProfile , 'user-profile');

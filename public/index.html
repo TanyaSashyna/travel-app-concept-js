@@ -78,7 +78,7 @@
                 <input type="text" name="number" placeholder="0" value="1">
                 <span class="error">Не корректное количество мест</span>
             </div>
-            <div>
+            <div class="btn-block">
                 <button type="button" class="btn" id="buy-ticket">Заказать билет</button>
             </div>
         </form>
@@ -88,26 +88,24 @@
         <style>@import "css/main.css";</style>
         <div class="user-profile">
             <div class="user-avatar">
-                <div class="avatar">
-                    <img src="img/avatar.svg">
-                </div>
+                <div class="avatar" id="avatar"></div>
             </div>
             <div class="info">
                 <div class="item">
                     <label>Имя: </label>
-                    <span id="userFirstName">FirstName</span>
+                    <span id="userFirstName"></span>
                 </div>
                 <div class="item">
                     <label>Фамилия: </label>
-                    <span id="userLastName">LastName</span>
+                    <span id="userLastName"></span>
                 </div>
                 <div class="item">
                     <label>Телефон: </label>
-                    <span id="userPhone">(099) 000 00 00</span>
+                    <span id="userPhone"></span>
                 </div>
                 <div class="item">
                     <label>Город: </label>
-                    <span id="userCity">Харкьов</span>
+                    <span id="userCity"></span>
                 </div>
             </div>
         </div>
@@ -117,29 +115,34 @@
         <style>@import "css/main.css";</style>
         <form>
             <div class="user-avatar">
-                <label for="avatarFile" class="avatar">
-                    <img src="img/avatar.svg" id="avatar-img">
-                </label>
+                <label for="avatarFile" class="avatar" id="avatar-img"></label>
                 <input type="file" name="avatar" id="avatarFile" class="input-avatar">
             </div>
-            <div class="info">
+            <form class="info">
                 <div class="form-group">
+                    <label>Имя:</label>
                     <input type="text" name="firstName" placeholder="Имя">
                     <span class="error">Введите имя</span>
                 </div>
                 <div class="form-group">
+                    <label>Фамилия:</label>
                     <input type="text" name="lastName" placeholder="Фамилия">
                     <span class="error">Введите Фамилию</span>
                 </div>
                 <div class="form-group">
+                    <label>Телефона:</label>
                     <input type="phone" name="phone" placeholder="Телефон">
                     <span class="error">Введите номер телефона</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="lastName" placeholder="Город">
+                    <label>Город:</label>
+                    <input type="text" name="city" placeholder="Город">
                     <span class="error">Введите город</span>
                 </div>
-            </div>
+                <div class="btn-block">
+                    <button type="button" class="btn" id="save">Сохранить</button>
+                </div>
+            </form>
         </form>
     </template>
 
@@ -169,8 +172,8 @@
 
     <div class="sidebar" id="sidebar">
         <div class="user-info">
-            <img src="img/profile.svg" alt="avatar">
-            <p>User Name</p>
+            <div class="avatar"></div>
+            <p class="userName">User Name</p>
         </div>
 
         <div class="nav-list">
@@ -196,7 +199,7 @@
                     <a href="">Скидки</a>
                 </li>
                 <li class="link">
-                    <a href="" id="settings">Настройки</a>
+                    <a href="" class="settings">Настройки</a>
                 </li>
                 <li class="link">
                     <a href="">Контакты</a>
@@ -226,8 +229,8 @@
 
     <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="js/my-lib.js"></script>
-    <script type="text/javascript" src="js/sidebar.js"></script>
     <script type="text/javascript" src="js/div-from-to.js"></script>
+    <script type="text/javascript" src="js/sidebar.js"></script>
 
     <script type="text/javascript" src="js/components/user-profile.js"></script>
     <script type="text/javascript" src="js/components/caption.js"></script>

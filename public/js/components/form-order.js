@@ -15,6 +15,10 @@ function createClassFormOrder() {
 
             Array.from(inputsForm).forEach(
                 elem => {
+                    elem.name === 'firstName' ? elem.value = userData.firstName : null;
+                    elem.name === 'lastName' ? elem.value = userData.lastName : null;
+                    elem.name === 'phone' ? elem.value = userData.phone : null;
+
                     elem.addEventListener('change', methodsLib.checkInput);
                     elem.addEventListener('keyup' , methodsLib.checkInput)
                 }

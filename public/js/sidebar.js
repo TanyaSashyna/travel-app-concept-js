@@ -1,6 +1,6 @@
 const sidebar = document.getElementById('sidebar');
 const burger = document.getElementById('burger');
-const blockingBg = document.querySelector('.bg')
+const blockingBg = document.querySelector('.bg');
 
 function openSidebar (e) {
     sidebar.classList.toggle('open');

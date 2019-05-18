@@ -15,10 +15,6 @@ function createDivFromTo() {
     location.hash = 'transfer';
 }
 
-window.onload = function (e){
-    createDivFromTo();
-};
-
 function createTransferPage() {
     intercityLink.addEventListener('click' , function (e) {
         e.preventDefault();

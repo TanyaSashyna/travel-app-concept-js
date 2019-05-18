@@ -17,6 +17,10 @@ button {
     background: transparent;
 }
 
+a {
+    text-decoration: none;
+}
+
 img {
     width: 100%;
     vertical-align: middle;
@@ -59,9 +63,6 @@ header nav {
 }
 
 header .logo {
-    position: relative;
-    z-index: 110;
-    text-decoration: none;
     display: block;
     margin: 0 auto;
     color: #fff;
@@ -147,7 +148,6 @@ header .logo img {
 
 .menu-sm .icon {
     display: block;
-    text-decoration: none;
     width: 100%;
     padding: 24px 7px;
     transition: background 0.35s ease;
@@ -171,7 +171,7 @@ header .logo img {
     flex-direction: column;
     max-width: 250px;
     width: 100%;
-    padding-top: 70px;
+    padding-top: 71px;
     color: #fff;
     background: #3ab1bf;
     border-right: 1px solid #25818c;
@@ -192,11 +192,15 @@ header .logo img {
     border-top: 1px solid #25818c;
 }
 
-.user-info img {
-    display: inline-block;
+.user-info .avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin: 0 auto;
+    background-image: url("../img/profile.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .user-info p {
@@ -223,7 +227,6 @@ header .logo img {
 }
 
 .nav-list .link a {
-    text-decoration: none;
     transition: 0.35s ease;
 }
 
@@ -449,11 +452,13 @@ form .user-avatar {
 }
 
 form .avatar {
-    max-width: 175px;
-    max-height: 175px;
-    width: 100%;
-    height: 100%;
+    width: 175px;
+    height: 175px;
     border-radius: 50%;
+    background-image: url(../img/avatar.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 
@@ -461,10 +466,12 @@ form .input-avatar {
     display: none;
 }
 
-form .info {
+form div.info {
     display: flex;
     flex-wrap: wrap;
-    padding-bottom: 0;
+    width: 100%;
+    padding: 20px 0 0;
+    border-top: 1px solid #b3b3b3;
 }
 
 form .info .form-group {
@@ -497,7 +504,7 @@ form .form-group .error {
     color: #bf3a3a;
 }
 
-form div:last-child {
+form .btn-block {
     width: 100%;
     padding: 0 10px;
     text-align: center;
@@ -509,7 +516,7 @@ form input {
     height: 40px;
     padding: 5px 5px 5px 10px;
     font-size: 17px;
-    color: #b3b3b3;
+    color: #656565;
     outline: none;
     border: 1px solid #b3b3b3;
     background: #f9f9f9;
@@ -577,15 +584,16 @@ form-order {
 }
 
 .user-profile .avatar {
-    max-width: 175px;
-    max-height: 175px;
-    width: 100%;
-    height: 100%;
+    width: 175px;
+    height: 175px;
     border-radius: 50%;
+    background-image: url(../img/avatar.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .user-profile .info {
-    flex-grow: 1;
     padding: 20px 0;
     border-top: 1px solid #b3b3b3;
 }
