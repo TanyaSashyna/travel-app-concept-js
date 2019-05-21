@@ -22,8 +22,8 @@ const createElem = (wrapTagName, tagName) => wrapTagName.appendChild(document.cr
 const defineElem = (nameElem, nameClass) => customElements.define(nameElem, nameClass);
 
 
-//пока нет регистрации и логина писать в куки так:
-//document.cookie = 'firstName=Petya';
+//пока нет регистрации и логина пишу в куки так:
+//document.cookie = 'firstName=Ivan';
 
 window.onload = function (e){
     fetch('http://localhost:3000/users')
@@ -35,7 +35,9 @@ window.onload = function (e){
                             user => user.firstName === methodsLib.getCookie().firstName
                         );
 
-                        userData.imgSrc ? avaSidebar.style.backgroundImage = `url(${atob(userData.imgSrc)})` : null;
+                        userData.imgSrc ?
+                            avaSidebar.style.backgroundImage = `url(${atob(userData.imgSrc)})` : null;
+
                         userName.textContent = `${userData.firstName} ${userData.lastName}`;
                     }
                 )

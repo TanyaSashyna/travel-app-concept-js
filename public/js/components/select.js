@@ -47,15 +47,10 @@ function createClassSelectionElem(textLabel) {
         checkValue(e) {
             valTwo = e.target.value;
 
-            document.querySelector('about-way') ?
-                document.querySelector('about-way').remove() : null;
-
-            document.querySelector('form-order') ?
-                document.querySelector('form-order').remove() : null;
+            methodsLib.cleaningWrap();
 
             createElem(wrap, 'about-way').style.display = 'block';
 
-            document.querySelector('.from-to').remove();
             location.hash = 'booking';
         }
     }

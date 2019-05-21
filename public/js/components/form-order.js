@@ -17,7 +17,10 @@ function createClassFormOrder() {
                 elem => {
                     elem.name === 'firstName' ? elem.value = userData.firstName : null;
                     elem.name === 'lastName' ? elem.value = userData.lastName : null;
-                    elem.name === 'phone' ? elem.value = userData.phone : null;
+                    elem.name === 'phone' ? elem.value = userData.phone : null;//переделать
+
+                    //elem.value =userData[elem.name];
+                    //проверка + массив ['firstName' , 'lastName' , 'phone']
 
                     elem.addEventListener('change', methodsLib.checkInput);
                     elem.addEventListener('keyup' , methodsLib.checkInput)
@@ -51,15 +54,10 @@ function createClassFormOrder() {
                     document.querySelector('.module').style.display = "none";
                     document.body.classList.remove('open-modal');
 
-                    Array.from(formParent)
-                        .filter(elem => elem.nodeName === 'INPUT')
-                        .forEach(elem => elem.value = '');
-
                     objDateForSend = {};
                     objDataClient ={};
 
-                    document.querySelector('about-way').remove();
-                    document.querySelector('form-order').remove();
+                    methodsLib.cleaningWrap();
                     createDivFromTo();
                 }, 3000)
             }
