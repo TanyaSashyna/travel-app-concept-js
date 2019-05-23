@@ -23,9 +23,9 @@ const defineElem = (nameElem, nameClass) => customElements.define(nameElem, name
 
 
 //пока нет регистрации и логина пишу в куки так:
-//document.cookie = 'firstName=Ivan';
+//document.cookie = 'firstName=Vasya';
 
-window.onload = function (e){
+//function loadContentPage (e) {
     fetch('http://localhost:3000/users')
         .then(
             resp => resp.json()
@@ -42,5 +42,7 @@ window.onload = function (e){
                     }
                 )
         );
-    createDivFromTo();
-};
+    /*createDivFromTo();
+}
+
+document.addEventListener("DOMContentLoaded" , loadContentPage);*/

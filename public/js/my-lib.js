@@ -8,6 +8,7 @@ const methodsLib = {
             Array.from(collectionElem).forEach(
                 elem => elem.addEventListener('click' , function (e) {
                     e.preventDefault();
+                    location.hash = this.getAttribute('href');
                     methodsLib.cleaningWrap();
                     createElem(wrap , newTagName)
                 })

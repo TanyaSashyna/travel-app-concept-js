@@ -12,13 +12,11 @@ function createDivFromTo() {
     createElem(divFromTo, 'selection-to')
         .style.display = 'none';
 
-    location.hash = 'transfer';
+    location.hash = intercityLink.getAttribute('href')
 }
 
-function createTransferPage() {
-    intercityLink.addEventListener('click' , function (e) {
-        e.preventDefault();
-        createDivFromTo();
-    })
-}
-createTransferPage();
+
+intercityLink.addEventListener('click' , function (e) {
+    e.preventDefault();
+    createDivFromTo();
+});

@@ -22,15 +22,12 @@ function createSettings () {
             avatarFile = this.shadow.getElementById('avatarFile');
             avatarFile.addEventListener('change' , this.getValueFile);
 
-            inputsForm = this.shadow.querySelectorAll('input');
+            inputsForm = this.shadow.querySelector('.info').querySelectorAll('input');
 
             Array.from(inputsForm).forEach(
-                elem => {
-
-                    elem.name === 'firstName' ? elem.value = userData.firstName : null;
-                    elem.name === 'lastName' ? elem.value = userData.lastName : null;
-                    elem.name === 'phone' ? elem.value = userData.phone : null;
-                    elem.name === 'city' ? elem.value = userData.city : null;
+                (elem , ind) => {
+                    elem.name === ['firstName', 'lastName' , 'phone' , 'city'][ind] ?
+                        elem.value = userData[elem.name] : null;
 
                     if(elem.type !== 'file'){
                         elem.addEventListener('change', methodsLib.checkInput);
@@ -74,11 +71,9 @@ function createSettings () {
             methodsLib.checkInput(e);
 
             Array.from(inputsForm).forEach(
-                elem => {
-                    elem.name === 'firstName' ?  userData.firstName = elem.value : null;
-                    elem.name === 'lastName' ? userData.lastName = elem.value : null;
-                    elem.name === 'phone' ? userData.phone = elem.value : null;
-                    elem.name === 'city' ? userData.city = elem.value : null;
+                (elem , ind) => {
+                    elem.name === ['firstName', 'lastName' , 'phone' , 'city'][ind] ?
+                        userData[elem.name] = elem.value : null;
                 }
             );
 

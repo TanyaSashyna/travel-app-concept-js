@@ -14,13 +14,8 @@ function createClassFormOrder() {
             inputsForm = this.shadow.querySelectorAll('input');
 
             Array.from(inputsForm).forEach(
-                elem => {
-                    elem.name === 'firstName' ? elem.value = userData.firstName : null;
-                    elem.name === 'lastName' ? elem.value = userData.lastName : null;
-                    elem.name === 'phone' ? elem.value = userData.phone : null;//переделать
-
-                    //elem.value =userData[elem.name];
-                    //проверка + массив ['firstName' , 'lastName' , 'phone']
+                (elem , ind) => {
+                    elem.name === ['firstName', 'lastName' , 'phone'][ind] ? elem.value = userData[elem.name] : null;
 
                     elem.addEventListener('change', methodsLib.checkInput);
                     elem.addEventListener('keyup' , methodsLib.checkInput)

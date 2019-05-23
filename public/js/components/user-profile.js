@@ -8,22 +8,13 @@ function createUserProfile () {
         }
 
         connectedCallback() {
-            location.hash = 'profile';
-
             let avatar = this.shadow.getElementById('avatar');
             userData.imgSrc ? avatar.style.backgroundImage = `url(${atob(userData.imgSrc)})` : null;
 
-            let userFirstName = this.shadow.getElementById('userFirstName');
-            userFirstName.textContent = userData.firstName;
-
-            let userLastName = this.shadow.getElementById('userLastName');
-            userLastName.textContent = userData.lastName;
-
-            let userPhone = this.shadow.getElementById('userPhone');
-            userPhone.textContent = userData.phone;
-
-            let userCity = this.shadow.getElementById('userCity');
-            userCity.textContent = userData.city;
+            for (let key in userData) {
+                this.shadow.getElementById(key) ?
+                    this.shadow.getElementById(key).textContent = userData[key] : null;
+            }
         }
     }
 }
